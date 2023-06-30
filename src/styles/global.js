@@ -22,6 +22,7 @@ export default createGlobalStyle`
     font-size: 1.6rem;
     outline: none;
     -webkit-font-smoothing: antialiased;
+    font-family: ${({ theme }) => theme.fonts.roboto};
   }
   
 

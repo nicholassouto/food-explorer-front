@@ -113,7 +113,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    gap: 1.8rem;
+    gap: 2.8rem;
   }
 
   > main {

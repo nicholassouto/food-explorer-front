@@ -12,6 +12,12 @@ export const Container = styled.div`
     position: relative;
     top: -10rem;
     left: 9rem;
+
+    @media (min-width: 1024px) {
+      position: relative;
+      top: -19rem;
+      left: 12rem;
+    }
   }
 
   .dish-description {
@@ -26,16 +32,29 @@ export const Container = styled.div`
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
-      font-family: ${({ theme }) => theme.fonts.roboto};
       margin-right: -9rem;
       margin-left: -9rem;
       padding-left: 4rem;
     }
   }
 
+  .pricing {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    color: ${({ theme }) => theme.cake.cake200};
+
+    @media (min-width: 1024px) {
+      font-size: 3.2rem;
+      line-height: 160%;
+    }
+  }
+
   .pricing-include {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 
     @media (min-width: 1024px) {
       display: flex;
@@ -50,6 +69,14 @@ export const Container = styled.div`
 
       @media (min-width: 1024px) {
         justify-content: center;
+        margin-top: 1rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
       }
     }
   }
@@ -72,8 +99,9 @@ export const Container = styled.div`
       font-size: 1.4rem;
       font-weight: 500;
       line-height: 2.4rem;
-      padding: 0.2rem;
+      padding: 1.2rem 2.4rem;
       margin-left: 1.6rem;
+      margin-top: -1.5rem;
     }
   }
 
@@ -89,15 +117,27 @@ export const Container = styled.div`
   > h3 {
     margin-top: -3.5rem;
     font-family: ${({ theme }) => theme.fonts.poppins};
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 2.4rem;
 
     @media (min-width: 1024px) {
-      font-size: 24px;
+      font-size: 2.4rem;
       font-style: normal;
       font-weight: 700;
       line-height: 140%;
+    }
+  }
+
+  > section {
+    svg {
+      width: 8.8rem;
+      height: 8.8rem;
+
+      @media (min-width: 1024px) {
+        width: 17.6rem;
+        height: 17.6rem;
+      }
     }
   }
 `;
