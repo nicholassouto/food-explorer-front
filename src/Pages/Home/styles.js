@@ -1,7 +1,5 @@
 import { styled } from "styled-components";
 
-import foods from "../../assets/foods.png";
-
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -10,7 +8,8 @@ export const Container = styled.div`
   grid-template-rows: 12.4rem auto;
   grid-template-areas:
     "header"
-    "content";
+    "content"
+    "footer";
 
   .header {
     grid-area: header;
@@ -19,56 +18,137 @@ export const Container = styled.div`
   .slogan {
     display: flex;
     flex-direction: column;
+    font-family: ${({ theme }) => theme.fonts.poppins};
     background: linear-gradient(180deg, #091e26 0%, #00131c 100%);
-    margin: 4.4rem 1.6rem 6.2rem 3.6rem;
-    padding-top: 3.6rem;
-    padding-bottom: 2.2rem;
+    margin: -11rem 1.6rem 6.2rem 3.6rem;
     gap: 0.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 16rem;
+
+    @media (min-width: 569px) and (max-width: 598px) {
+      padding-top: 3rem;
+      padding-bottom: 1.5rem;
+      padding-left: 16rem;
+    }
+
+    @media (min-width: 598px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 3rem;
+      padding-bottom: 3.2rem;
+      padding-left: 16rem;
+    }
 
     @media (min-width: 1024px) {
-      margin: 26.8rem 12.4rem 6.2rem;
-      padding-top: 8.8rem;
-      padding-bottom: 11.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin: -27.5rem 1.6rem 6.2rem 3.6rem;
+      padding-right: 5rem;
+      padding-top: 10rem;
+      padding-bottom: 10rem;
     }
 
     > h1 {
-      margin-left: 15.3rem;
-      font-family: ${({ theme }) => theme.fonts.poppins};
+      font-size: 1.4rem;
+      font-style: normal;
       font-weight: 600;
-      font-size: 1.8rem;
-      line-height: 140%;
-      
-      @media (min-width: 1024px){
-        margin-left: 59.8rem;
+      line-height: 120%;
+
+      @media (min-width: 509px) {
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 110%;
+      }
+
+      @media (min-width: 569px) {
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 140%;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 4rem;
+        font-weight: 500;
+        line-height: 140%;
       }
     }
 
     > p {
-      font-family: ${({ theme }) => theme.fonts.poppins};
-      font-size: 1.2rem;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
       line-height: 140%;
-      margin-left: 15.3rem;
-    }
 
-    > div {
-      width: 19.1rem;
-      height: 14.9rem;
-      position: absolute;
-      left: 0;
-      top: 14rem;
-      background: url(${foods}) no-repeat center center;
-      background-size: cover;
+      @media (min-width: 509px) {
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 110%;
+      }
+
+      @media (min-width: 569px) {
+        font-size: 1.3rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+      }
 
       @media (min-width: 1024px) {
-        width: 63.2rem;
-        height: 40.6rem;
+        font-size: 1.4rem;
+        line-height: 100%;
       }
     }
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+
+  .dishes {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1.8rem;
   }
 
   > main {
     grid-area: content;
 
     overflow-y: auto;
+
+    > div {
+      margin-top: 1.5rem;
+
+      @media (min-width: 1024px) {
+        margin-top: 3.2rem;
+      }
+    }
+
+    > hero {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2.4rem;
+
+      @media (min-width: 1024px) {
+        margin-left: 3.4rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        font-family: ${({ theme }) => theme.fonts.poppins};
+        font-weight: 500;
+        line-height: 140%;
+        margin-bottom: 2.4rem;
+
+        @media (min-width: 1024px) {
+          font-size: 3.2rem;
+        }
+      }
+    }
   }
 `;
