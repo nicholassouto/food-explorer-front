@@ -1,7 +1,5 @@
 import { Container } from "./styles";
 
-
-
 import { Header } from "../../Components/Header";
 import { Footer } from "../../Components/Footer";
 import { Foods } from "../../Components/Foods";
@@ -11,7 +9,7 @@ export function Home() {
   return (
     <Container>
       <Header className="header" />
-      <main className="content">
+      <main>
         <div>
           <Foods />
           <div className="slogan">

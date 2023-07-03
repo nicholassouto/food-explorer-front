@@ -1,4 +1,4 @@
-import { Container } from "../Menu/styles";
+import { Container } from "./styles";
 
 import { useNavigate } from "react-router-dom";
 
@@ -8,45 +8,54 @@ import ravanelo from "../../assets/Dishes/ravanello.svg";
 import minus from "../../assets/minus.svg";
 import plus from "../../assets/plus.svg";
 import arrowLeft from "../../assets/arrowLeft.svg";
+import receipt from "../../assets/receipt.svg";
 
-import { Button } from "../../Components/Button";
-import { Ingredients } from "../../Components/Ingredients";
 import { Header } from "../../Components/Header";
 import { Footer } from "../../Components/Footer";
+import { Ingredients } from "../../Components/Ingredients";
+import { Button } from "../../Components/Button";
 
 export function Details() {
   const navigate = useNavigate();
 
   function HandleBack() {
-    navigate("/");
+    navigate(-1);
   }
 
   return (
     <Container>
       <Header className="header" />
       <main>
-        <div>
-          <ReactSVG src={arrowLeft} alt="seta para esquerda" onClick={HandleBack} />
+        <section onClick={HandleBack}>
+          <ReactSVG src={arrowLeft} alt="seta para esquerda" />
           <p>voltar</p>
-        </div>
-        <section>
-          <ReactSVG src={ravanelo} />
         </section>
-        <h3>Salada Ravanello</h3>
-        <p className="dish-description">Rabanetes, folhas verdes e molho agridoce salpicados com gergelim</p>
-        <Ingredients />
-        <p className="pricing">
-          R$
-          <span>49,97</span>
-        </p>
-        <div className="pricing-include">
-          <div>
+        <div>
+          <div className="food-picture">
+            <ReactSVG src={ravanelo} />
+          </div>
+        </div>
+        <div className="food-info">
+          <h3>Salada Ravanello</h3>
+          <p className="dish-description">Rabanetes, folhas verdes e molho agridoce salpicados com gergelim</p>
+          <div className="ingredients">
+            <Ingredients />
+            <Ingredients />
+            <Ingredients />
+            <Ingredients />
+            <Ingredients />
+            <Ingredients />
+          </div>
+          <div className="pricing-include">
             <ReactSVG src={minus} alt="botão de menos" />
             <p>00</p>
             <ReactSVG src={plus} alt="botao de mais" />
-          </div>
-          <div>
-            <Button className="button">Incluir</Button>
+            <Button className="button">
+              <ReactSVG src={receipt} alt="icone de recibo" />
+              <p>
+                incluir ∙ R$ <span>25,00</span>
+              </p>
+            </Button>
           </div>
         </div>
       </main>
