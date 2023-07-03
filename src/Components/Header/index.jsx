@@ -1,5 +1,8 @@
 import { Container, Title } from "./styles";
 import { ReactSVG } from "react-svg";
+
+import { useNavigate } from "react-router-dom";
+
 import menu from "../../assets/menu.svg";
 import polygon from "../../assets/polygon.svg";
 import receipt from "../../assets/receipt.svg";
@@ -9,10 +12,16 @@ import { Button } from "../Button";
 import { Search } from "../Search";
 
 export function Header() {
+  const navigate = useNavigate();
+
+  function goToMenu() {
+    navigate("/menu");
+  }
+
   return (
     <Container>
       <div>
-        <ReactSVG src={menu} alt="imagem com 3 linhas, uma sobre a outra" />
+        <ReactSVG onClick={goToMenu} src={menu} alt="imagem com 3 linhas, uma sobre a outra" />
       </div>
       <Title>
         <ReactSVG src={polygon} alt="poligono azul" />

@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { ReactSVG } from "react-svg";
 
@@ -12,10 +12,16 @@ import ravanelo from "../../assets/Dishes/ravanello.svg";
 import { Button } from "../Button";
 
 export function Dishes({ data, ...rest }) {
+  const navigate = useNavigate();
+
+  function GoDetails() {
+    navigate("/Details/1");
+  }
+
   return (
     <Container {...rest}>
-      <section>
-        <ReactSVG src={ravanelo} />
+      <section className="food-details">
+        <ReactSVG onClick={GoDetails} src={ravanelo} alt="imagem de um prato de salado" />
       </section>
       <ReactSVG className="heart-icon" src={heart} alt="icone de coração com o interior vazio" />
       <h3>Salada Ravanello</h3>

@@ -8,6 +8,10 @@ export const Container = styled.div`
   margin-bottom: 2.4rem;
   gap: 1.2rem;
 
+  .food-details:hover {
+    cursor: pointer;
+  }
+
   .heart-icon {
     position: relative;
     top: -10rem;
@@ -18,6 +22,10 @@ export const Container = styled.div`
       top: -19rem;
       left: 12rem;
     }
+  }
+
+  .heart-icon:hover{
+    cursor: pointer;
   }
 
   .dish-description {

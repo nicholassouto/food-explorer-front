@@ -1,8 +1,6 @@
 import { styled } from "styled-components";
 
 export const Container = styled.footer`
-  position: relative;
-  bottom: 0;
   width: 100%;
   display: flex;
   flex-direction: row;
