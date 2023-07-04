@@ -125,3 +125,18 @@ export const Title = styled.h1`
     font-family: ${({ theme }) => theme.fonts.roboto};
   }
 `;
+
+export const PedidosFavoritos = styled.div`
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    font-size: 1.6rem;
+    font-weight: 400;
+    width: 100%;
+    gap: 3.2rem;
+  }
+`;

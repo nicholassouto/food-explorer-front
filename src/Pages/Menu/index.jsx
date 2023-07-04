@@ -31,6 +31,9 @@ export function Menu() {
         </Search>
         <Dishes />
         <h1>
+          <h2>Meus Favoritos</h2>
+        </h1>
+        <h1>
           <h2>Sair</h2>
         </h1>
       </main>

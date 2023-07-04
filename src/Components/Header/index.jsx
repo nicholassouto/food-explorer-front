@@ -1,4 +1,4 @@
-import { Container, Title } from "./styles";
+import { Container, Title, PedidosFavoritos } from "./styles";
 import { ReactSVG } from "react-svg";
 
 import { useNavigate } from "react-router-dom";
@@ -31,6 +31,10 @@ export function Header() {
         <ReactSVG src={magnifier} />
         <input placeholder="Busque por pratos ou ingredientes" />
       </Search>
+      <PedidosFavoritos>
+        <p>Meus favoritos</p>
+        <p>Histórico de pedidos</p>
+      </PedidosFavoritos>
       <div className="receipt">
         <ReactSVG src={receipt} alt="icone de recibo" />
         <span>0</span>

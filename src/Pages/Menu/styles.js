@@ -51,13 +51,10 @@ export const Container = styled.div`
     }
 
     > h1 {
-      margin-top: 3rem;
-      margin-left: 3.8rem;
       padding-bottom: 1rem;
-
       margin-left: 3rem;
       margin-right: 3rem;
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
       border-bottom: 1px solid;
 
       h2 {
@@ -65,6 +62,7 @@ export const Container = styled.div`
         font-size: 2.4rem;
         font-family: ${({ theme }) => theme.fonts.poppins};
         font-weight: 300;
+        line-height: 140%;
       }
     }
   }
