@@ -30,6 +30,10 @@ export function Header() {
     navigate("/Favorites");
   }
 
+  function handleBought() {
+    navigate("/Bought");
+  }
+
   return (
     <Container>
       <div>
@@ -45,7 +49,7 @@ export function Header() {
       </Search>
       <PedidosFavoritos>
         <p onClick={handleFavorites}>Meus favoritos</p>
-        <p>Histórico de pedidos</p>
+        <p onClick={handleBought}>Histórico de pedidos</p>
       </PedidosFavoritos>
       <div onClick={goToLogin} className="receipt">
         <ReactSVG src={receipt} alt="icone de recibo" />

@@ -15,11 +15,15 @@ export function Menu() {
   const navigate = useNavigate();
 
   function handleBack() {
-    navigate("/");
+    navigate(-1);
   }
 
   function handleFavorites() {
     navigate("/Favorites");
+  }
+
+  function handleBought() {
+    navigate("/Bought");
   }
 
   return (
@@ -36,6 +40,9 @@ export function Menu() {
         <Dishes />
         <h1>
           <h2 onClick={handleFavorites}>Meus Favoritos</h2>
+        </h1>
+        <h1>
+          <h2 onClick={handleBought}>Historico de Pedidos</h2>
         </h1>
         <h1>
           <h2>Sair</h2>
