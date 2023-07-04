@@ -18,6 +18,10 @@ export function Header() {
     navigate("/menu");
   }
 
+  function goToLogin() {
+    navigate("/signin");
+  }
+
   return (
     <Container>
       <div>
@@ -35,11 +39,11 @@ export function Header() {
         <p>Meus favoritos</p>
         <p>Histórico de pedidos</p>
       </PedidosFavoritos>
-      <div className="receipt">
+      <div onClick={goToLogin} className="receipt">
         <ReactSVG src={receipt} alt="icone de recibo" />
         <span>0</span>
       </div>
-      <Button className="orders">
+      <Button onClick={goToLogin} className="orders">
         <ReactSVG src={receipt} alt="ico de recibo" />
         <p>Pedidos</p>
         <p>
