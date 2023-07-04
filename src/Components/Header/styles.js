@@ -138,5 +138,6 @@ export const PedidosFavoritos = styled.div`
     font-weight: 400;
     width: 100%;
     gap: 3.2rem;
+    margin-right: 1rem;
   }
 `;

@@ -22,12 +22,20 @@ export function Header() {
     navigate("/signin");
   }
 
+  function goHome() {
+    navigate("/");
+  }
+
+  function handleFavorites() {
+    navigate("/Favorites");
+  }
+
   return (
     <Container>
       <div>
         <ReactSVG onClick={goToMenu} src={menu} alt="imagem com 3 linhas, uma sobre a outra" />
       </div>
-      <Title>
+      <Title onClick={goHome}>
         <ReactSVG src={polygon} alt="poligono azul" />
         <h2>food explorer</h2>
       </Title>
@@ -36,7 +44,7 @@ export function Header() {
         <input placeholder="Busque por pratos ou ingredientes" />
       </Search>
       <PedidosFavoritos>
-        <p>Meus favoritos</p>
+        <p onClick={handleFavorites}>Meus favoritos</p>
         <p>Histórico de pedidos</p>
       </PedidosFavoritos>
       <div onClick={goToLogin} className="receipt">
@@ -44,7 +52,7 @@ export function Header() {
         <span>0</span>
       </div>
       <Button onClick={goToLogin} className="orders">
-        <ReactSVG src={receipt} alt="ico de recibo" />
+        <ReactSVG src={receipt} alt="icone de recibo" />
         <p>Pedidos</p>
         <p>
           (<span>0</span>)

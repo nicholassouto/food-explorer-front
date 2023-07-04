@@ -18,6 +18,10 @@ export function Menu() {
     navigate("/");
   }
 
+  function handleFavorites() {
+    navigate("/Favorites");
+  }
+
   return (
     <Container>
       <main>
@@ -31,7 +35,7 @@ export function Menu() {
         </Search>
         <Dishes />
         <h1>
-          <h2>Meus Favoritos</h2>
+          <h2 onClick={handleFavorites}>Meus Favoritos</h2>
         </h1>
         <h1>
           <h2>Sair</h2>
