@@ -27,12 +27,14 @@ export const Data = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   margin-bottom: 0.5rem;
 
   @media (min-width: 1024px) {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: normal;
     width: 70vw;
     margin-bottom: 0;
   }
@@ -54,7 +56,17 @@ export const Data = styled.div`
     }
   }
 
-  >div:last-child{
+  .status {
+
+    @media (min-width: 1024px) {
+      padding: 1.4rem 2.0rem;
+    }
+    svg {
+      margin-right: 0.8rem;
+    }
+  }
+
+  > div:last-child {
     width: 20vw;
   }
 

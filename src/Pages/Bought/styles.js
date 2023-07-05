@@ -25,7 +25,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 1024px){
+    @media (min-width: 1024px) {
       margin-left: 12.3rem;
     }
 
@@ -34,6 +34,11 @@ export const Container = styled.div`
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+
+        p {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
       }
     }
 

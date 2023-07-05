@@ -11,7 +11,7 @@ export function BoughtDishes({ data, ...rest }) {
       <main>
         <Data>
           <p>000001</p>
-          <div>
+          <div className="status">
             <ReactSVG src={redDot} alt="ponto vermelho" />
             <span>Pendente</span>
           </div>
@@ -19,7 +19,7 @@ export function BoughtDishes({ data, ...rest }) {
             <p className="id">000001 </p>
           </div>
           <div className="dishes">
-            <p>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá 1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</p>
+            <p>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá 1</p>
           </div>
           <div>
             <p>20/05 às 18h00</p>
