@@ -8,17 +8,18 @@ import greenDot from "../../assets/greenDot.svg";
 export function BoughtDishes({ data, ...rest }) {
   return (
     <Container {...rest}>
-      
       <main>
         <Data>
           <p>000001</p>
           <div>
-            <p className="dishes-id">000001 </p>
             <ReactSVG src={redDot} alt="ponto vermelho" />
             <span>Pendente</span>
           </div>
-          <div className="dishes-id">
-            <p>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</p>
+          <div>
+            <p className="id">000001 </p>
+          </div>
+          <div className="dishes">
+            <p>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá 1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</p>
           </div>
           <div>
             <p>20/05 às 18h00</p>

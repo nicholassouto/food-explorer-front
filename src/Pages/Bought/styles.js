@@ -25,6 +25,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
+    @media (min-width: 1024px){
+      margin-left: 12.3rem;
+    }
+
     section {
       @media (min-width: 1024px) {
         display: flex;
@@ -52,5 +56,32 @@ export const Table = styled.div`
     display: flex;
     flex-direction: row;
     margin-left: 3.5rem;
+    width: 70vw;
+
+    > section {
+      display: flex;
+      flex-direction: row;
+      padding: 1.4rem 2.4rem;
+      border: 0.2rem solid ${({ theme }) => theme.dark.dark1000};
+    }
+
+    > section:first-child {
+      padding-right: 4.5rem;
+    }
+
+    > section:nth-child(2) {
+      padding-right: 2.05rem;
+    }
+
+    > section:nth-child(3) {
+      width: 70vw;
+    }
+
+    > section:last-child {
+      width: 20vw;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: break-word;
+    }
   }
 `;

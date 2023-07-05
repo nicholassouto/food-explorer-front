@@ -3,8 +3,6 @@ import { styled } from "styled-components";
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
-  border-radius: 0.8rem;
-  border: 0.2rem solid ${({ theme }) => theme.dark.dark1000};
   margin-left: 3.5rem;
   margin-right: 3.5rem;
   margin-bottom: 1.7rem;
@@ -13,9 +11,15 @@ export const Container = styled.section`
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 160%;
+  border-radius: 0.8rem;
+  border: 0.2rem solid ${({ theme }) => theme.dark.dark1000};
 
-  @media (min-width: 1024px){
-    margin-left: 0;
+  @media (min-width: 1024px) {
+    border-radius: 0;
+    border: none;
+    margin-left: 3.5rem;
+    padding: 0;
+    margin-bottom: 0;
   }
 `;
 
@@ -24,6 +28,14 @@ export const Data = styled.div`
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 0.5rem;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 70vw;
+    margin-bottom: 0;
+  }
 
   > p {
     @media (min-width: 1024px) {
@@ -34,12 +46,30 @@ export const Data = styled.div`
   > div {
     display: flex;
     flex-direction: row;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+      border: 0.2rem solid ${({ theme }) => theme.dark.dark1000};
+      padding: 1.4rem 2.4rem;
+    }
   }
 
-  .dishes-id {
+  >div:last-child{
+    width: 20vw;
+  }
+
+  .id {
     display: none;
     @media (min-width: 1024px) {
       display: flex;
+    }
+  }
+
+  .dishes {
+    display: none;
+    @media (min-width: 1024px) {
+      display: flex;
+      width: 70vw;
     }
   }
 `;
@@ -55,5 +85,3 @@ export const Dishes = styled.div`
     display: none;
   }
 `;
-
-

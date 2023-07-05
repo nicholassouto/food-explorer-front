@@ -11,10 +11,18 @@ export function Bought() {
       <main>
         <h1>Histórico de Pedidos</h1>
         <Table>
-          <p>Status</p>
-          <p>Codigo</p>
-          <p>Detalhmento</p>
-          <p>Data e Hora</p>
+          <section>
+            <p>Status</p>
+          </section>
+          <section>
+            <p>Código</p>
+          </section>
+          <section>
+            <p>Detalhamento</p>
+          </section>
+          <section>
+            <p>Data e Hora</p>
+          </section>
         </Table>
         <section>
           <BoughtDishes />
