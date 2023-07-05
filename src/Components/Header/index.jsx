@@ -51,11 +51,11 @@ export function Header() {
         <p onClick={handleFavorites}>Meus favoritos</p>
         <p onClick={handleBought}>Histórico de pedidos</p>
       </PedidosFavoritos>
-      <div onClick={goToLogin} className="receipt">
+      <div className="receipt">
         <ReactSVG src={receipt} alt="icone de recibo" />
         <span>0</span>
       </div>
-      <Button onClick={goToLogin} className="orders">
+      <Button className="orders">
         <ReactSVG src={receipt} alt="icone de recibo" />
         <p>Pedidos</p>
         <p>
@@ -63,7 +63,7 @@ export function Header() {
         </p>
       </Button>
       <div>
-        <ReactSVG src={signOut} alt="icone de saida" />
+        <ReactSVG onClick={goToLogin} src={signOut} alt="icone de saida" />
       </div>
     </Container>
   );

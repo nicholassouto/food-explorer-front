@@ -9,6 +9,11 @@ export const Container = styled.div`
   padding: 5.6rem 2.8rem 2.4rem;
   background-color: ${({ theme }) => theme.dark.dark700};
 
+  @media (min-width: 1024px) {
+    padding-left: 12.3rem;
+    padding-right: 12.3rem;
+  }
+
   > div:first-child {
     @media (min-width: 1024px) {
       display: none;

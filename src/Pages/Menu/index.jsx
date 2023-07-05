@@ -26,6 +26,10 @@ export function Menu() {
     navigate("/Bought");
   }
 
+  function goToLogin() {
+    navigate("/signin");
+  }
+
   return (
     <Container>
       <main>
@@ -45,7 +49,7 @@ export function Menu() {
           <h2 onClick={handleBought}>Historico de Pedidos</h2>
         </h1>
         <h1>
-          <h2>Sair</h2>
+          <h2 onClick={goToLogin}>Sair</h2>
         </h1>
       </main>
       <Footer className="footer" />
