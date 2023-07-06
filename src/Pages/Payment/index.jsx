@@ -2,16 +2,16 @@ import { Container } from "./styles";
 
 import { Header } from "../../Components/Header";
 import { Footer } from "../../Components/Footer";
-import { FavDishes } from "../../Components/FavDishes";
+import { PaymentOptions } from "../../Components/PaymentOptions";
 
-export function Favorites() {
+export function Payment() {
   return (
     <Container>
       <Header className="header" />
       <main>
-        <h1>Meus Favoritos</h1>
+        <h1>Pagamento</h1>
         <section>
-          <FavDishes />
+          <PaymentOptions />
         </section>
       </main>
       <Footer className="footer" />
