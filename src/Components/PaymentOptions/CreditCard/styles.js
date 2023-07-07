@@ -3,7 +3,10 @@ import { styled } from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5.7rem 2.6rem;
+  
+  >main{
+    padding: 5.7rem 2.6rem;
+  }
 
   > section:last-child {
     display: flex;
@@ -49,6 +52,32 @@ export const Container = styled.div`
     font-size: 1.4rem;
     font-weight: 500;
     line-height: 2.4rem;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .payment-button-desk {
+    display: none;
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 1.2rem 3.2rem;
+
+      border-radius: 0.5rem;
+      background-color: ${({ theme }) => theme.tomato.tomato100};
+      opacity: 0.8;
+
+      color: ${({ theme }) => theme.light.light100};
+      font-family: ${({ theme }) => theme.fonts.poppins};
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 2.4rem;
+    }
   }
 `;
 

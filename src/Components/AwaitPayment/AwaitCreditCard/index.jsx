@@ -30,22 +30,22 @@ export function AwaitCreditCard() {
     <Container>
       <main>
         {status === "pending" && (
-          <section className="processing-payment">
+          <figure className="processing-payment">
             <ReactSVG src={clock} alt="icone de relogio" />
-            <p>Aguardando pagamento no caixa</p>
-          </section>
+            <figcaption>Aguardando pagamento no caixa</figcaption>
+          </figure>
         )}
         {status === "approved" && (
-          <section className="processing-payment">
+          <figure className="processing-payment">
             <ReactSVG src={checkCircle} alt="icone de circulo com certo no meio" />
-            <p>Pagamento aprovado!</p>
-          </section>
+            <figcaption>Pagamento aprovado!</figcaption>
+          </figure>
         )}
         {status === "delivered" && (
-          <section className="processing-payment">
+          <figure className="processing-payment">
             <ReactSVG src={forkKnife} alt="icone de garfo e faca" />
-            <p>Pedido entregue!</p>
-          </section>
+            <figcaption>Pedido entregue!</figcaption>
+          </figure>
         )}
       </main>
     </Container>

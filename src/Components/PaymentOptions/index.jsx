@@ -12,7 +12,6 @@ import pix from "../../assets/pix.svg";
 import creditCard from "../../assets/creditCard.svg";
 
 export function PaymentOptions() {
-
   const [selectedButton, setSelectedButton] = useState("creditCard");
 
   const handleButtonClick = (button) => {
@@ -46,7 +45,7 @@ export function PaymentOptions() {
         </div>
         <div>
           {selectedButton === "pix" ? <QRCode /> : null}
-          {selectedButton === "creditCard" ? <CreditCard/> : null}
+          {selectedButton === "creditCard" ? <CreditCard /> : null}
         </div>
       </div>
     </Container>

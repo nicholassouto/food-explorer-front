@@ -34,8 +34,12 @@ export function Header() {
     navigate("/Bought");
   }
 
-  function handleShopList(){
-    navigate("/ShopList");
+  function handleShopList() {
+    if (window.location.pathname === "/ShopList") {
+      window.location.reload();
+    } else {
+      navigate("/ShopList");
+    }
   }
 
   return (
