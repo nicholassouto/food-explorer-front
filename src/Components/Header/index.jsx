@@ -35,11 +35,7 @@ export function Header() {
   }
 
   function handleShopList() {
-    if (window.location.pathname === "/ShopList") {
-      window.location.assign("/ShopList");
-    } else {
-      navigate("/ShopList");
-    }
+    navigate("/ShopList");
   }
 
   return (

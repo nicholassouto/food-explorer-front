@@ -24,6 +24,10 @@ export const Container = styled.div`
     display: none;
     @media (min-width: 1024px) {
       display: block;
+
+      :hover{
+        cursor: pointer;
+      }
     }
   }
 
@@ -117,6 +121,10 @@ export const Title = styled.h1`
     display: flex;
     flex-direction: row;
     justify-content: start;
+    
+    :hover{
+      cursor: pointer
+    }
   }
 
   svg {
@@ -144,5 +152,9 @@ export const PedidosFavoritos = styled.div`
     width: 100%;
     gap: 3.2rem;
     margin-right: 1rem;
+
+    :hover{
+      cursor: pointer;
+    }
   }
 `;
