@@ -36,7 +36,7 @@ export function Header() {
 
   function handleShopList() {
     if (window.location.pathname === "/ShopList") {
-      window.location.reload();
+      navigate("/ShopList", { replace: true });
     } else {
       navigate("/ShopList");
     }
