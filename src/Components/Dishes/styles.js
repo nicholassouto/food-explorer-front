@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+import ravanello from "../../assets/Ravanello.png";
+import torradaParma from "../../assets/Torradas-de-Parma.png";
 
 export const Container = styled.div`
   display: flex;
@@ -24,7 +26,7 @@ export const Container = styled.div`
     }
   }
 
-  .heart-icon:hover{
+  .heart-icon:hover {
     cursor: pointer;
   }
 
@@ -148,4 +150,12 @@ export const Container = styled.div`
       }
     }
   }
+`;
+
+export const DishesImg = styled.image`
+  display: flex;
+  width: 19.1rem;
+  height: 14.9rem;
+  background: url(${ravanello}) no-repeat center center;
+  background-size: contain;
 `;

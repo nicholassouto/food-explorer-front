@@ -1,10 +1,9 @@
-import { Container } from "./styles";
+import { Container, DishesImg } from "./styles";
 
 import { useNavigate } from "react-router-dom";
 
 import { ReactSVG } from "react-svg";
 
-import ravanelo from "../../assets/Dishes/ravanello.svg";
 import minus from "../../assets/minus.svg";
 import plus from "../../assets/plus.svg";
 import arrowLeft from "../../assets/arrowLeft.svg";
@@ -32,7 +31,7 @@ export function Details() {
         </section>
         <div>
           <div className="food-picture">
-            <ReactSVG src={ravanelo} />
+            <DishesImg />
           </div>
         </div>
         <div className="food-info">

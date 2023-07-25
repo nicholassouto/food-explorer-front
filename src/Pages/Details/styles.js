@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+import ravanello from "../../assets/Ravanello.png";
+import torradaParma from "../../assets/Torradas-de-Parma.png";
 
 export const Container = styled.div`
   height: 100vh;
@@ -20,7 +22,7 @@ export const Container = styled.div`
 
   .food-picture {
     margin-left: 8.2rem;
-    svg {
+    image {
       width: 26.4rem;
       height: 26.4rem;
     }
@@ -180,4 +182,12 @@ export const Container = styled.div`
       }
     }
   }
+`;
+
+export const DishesImg = styled.image`
+  display: flex;
+  width: 19.1rem;
+  height: 14.9rem;
+  background: url(${ravanello}) no-repeat center center;
+  background-size: contain;
 `;

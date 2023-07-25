@@ -1,12 +1,10 @@
-import { Container } from "./styles";
-import { ReactSVG } from "react-svg";
+import { Container, DishesImg } from "./styles";
 
-import gambe from "../../assets/Dishes/gambe.svg";
 
 export function FavDishes({ data, ...rest }) {
   return (
     <Container {...rest}>
-      <ReactSVG src={gambe} alt="imagem de prato de comida" />
+      <DishesImg />
       <div>
         <h2>Spaguetti Gambe</h2>
         <p>Remover dos favoritos</p>

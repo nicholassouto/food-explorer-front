@@ -13,7 +13,7 @@ export const Container = styled.div`
     justify-content: space-around;
   }
 
-  .login {
+  .create {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -33,7 +33,7 @@ export const Container = styled.div`
     }
   }
 
-  .create {
+  .login {
     background: none;
     border: none;
     width: 100%;
@@ -124,6 +124,7 @@ export const Dados = styled.div`
 
   > input {
     background-color: ${({ theme }) => theme.dark.dark900};
+    color: ${({ theme }) => theme.light.light100};
     border-radius: 0.8rem;
     font-size: 1.6rem;
     font-weight: 400;
