@@ -1,15 +1,20 @@
 import { Container, Dados } from "./styles";
+import { useState } from "react";
 import { ReactSVG } from "react-svg";
 import { useNavigate } from "react-router-dom";
 
 import polygon from "../../assets/polygon.svg";
 import { Button } from "../../Components/Button";
+import { useAuth } from "../../hooks/auth";
 
 export function SignIn() {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
-  function goToHome() {
-    navigate("/");
+  function handleSignIn() {
+    signIn({ email, password });
   }
 
   function handleSignUp() {
@@ -26,13 +31,24 @@ export function SignIn() {
         <h1>Faça login</h1>
         <Dados>
           <label htmlFor="email">E-mail</label>
-          <input type="email" id="email" placeholder="Exemplo: exemplo@exemplo.com.br" />
+          <input
+            type="email"
+            id="email"
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            onChange={(e) => setemail(e.target.value)}
+          />
         </Dados>
         <Dados>
           <label htmlFor="password">Senha</label>
-          <input type="password" id="password" placeholder="No mínimo 6 caracteres" minLength={6} />
+          <input
+            type="password"
+            id="password"
+            placeholder="No mínimo 6 caracteres"
+            minLength={6}
+            onChange={(e) => setpassword(e.target.value)}
+          />
         </Dados>
-        <Button onClick={goToHome} className="login">
+        <Button onClick={handleSignIn} className="login">
           <p>Entrar</p>
         </Button>
         <Button onClick={handleSignUp} className="create">

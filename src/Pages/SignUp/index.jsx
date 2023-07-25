@@ -3,6 +3,8 @@ import { useState } from "react";
 import { ReactSVG } from "react-svg";
 import { useNavigate } from "react-router-dom";
 
+import { api } from "../../services/api";
+
 import polygon from "../../assets/polygon.svg";
 import { Button } from "../../Components/Button";
 
@@ -10,14 +12,31 @@ export function SignUp() {
   const [name, setName] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const admin = false;
   const navigate = useNavigate();
 
   function handleSignUp() {
-    console.log(name, password, email);
+    if (!name || !email || !password) {
+      return alert("Preencha todos os campos");
+    }
+
+    api
+      .post("/users", { name, email, password, admin })
+      .then(() => {
+        alert("Usuário cadastrado com sucesso");
+        navigate("/");
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert("Não foi possivel realizar esta operação");
+        }
+      });
   }
 
   function goToSignIn() {
-    navigate(-1);
+    navigate("/");
   }
 
   return (

@@ -1,5 +1,6 @@
 import { Container, Title, PedidosFavoritos } from "./styles";
 import { ReactSVG } from "react-svg";
+import { useAuth } from "../../hooks/auth";
 
 import { useNavigate } from "react-router-dom";
 
@@ -7,19 +8,17 @@ import menu from "../../assets/menu.svg";
 import polygon from "../../assets/polygon.svg";
 import receipt from "../../assets/receipt.svg";
 import magnifier from "../../assets/magnifier.svg";
-import signOut from "../../assets/signOut.svg";
+import signOutIcon from "../../assets/signOut.svg";
 import { Button } from "../Button";
 import { Search } from "../Search";
 
 export function Header() {
+  const { signOut } = useAuth();
+
   const navigate = useNavigate();
 
   function goToMenu() {
     navigate("/menu");
-  }
-
-  function goToLogin() {
-    navigate("/signin");
   }
 
   function goHome() {
@@ -67,7 +66,7 @@ export function Header() {
         </p>
       </Button>
       <div>
-        <ReactSVG onClick={goToLogin} src={signOut} alt="icone de saida" />
+        <ReactSVG onClick={(signOut)} src={signOutIcon} alt="icone de saida" />
       </div>
     </Container>
   );

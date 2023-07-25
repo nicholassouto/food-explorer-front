@@ -124,6 +124,7 @@ export const Dados = styled.div`
 
   > input {
     background-color: ${({ theme }) => theme.dark.dark900};
+    color: ${({ theme }) => theme.light.light100};
     border-radius: 0.8rem;
     font-size: 1.6rem;
     font-weight: 400;

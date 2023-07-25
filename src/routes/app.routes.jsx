@@ -9,8 +9,6 @@ import { ShopList } from "../Pages/ShopList";
 import { Payment } from "../Pages/Payment";
 import { PaymentFinish } from "../Pages/PaymentFinish";
 
-import { SignIn } from "../Pages/SignIn";
-import { SignUp } from "../Pages/SignUp";
 
 export function AppRoutes() {
   return (
@@ -23,9 +21,6 @@ export function AppRoutes() {
       <Route path="/Payment" element={<Payment />} />
       <Route path="/PaymentFinish" element={<PaymentFinish />} />
       <Route path="/Details/:id" element={<Details />} />
-
-      <Route path="/SignIn" element={<SignIn />} />
-      <Route path="/SignUp" element={<SignUp />} />
     </Routes>
   );
 }
