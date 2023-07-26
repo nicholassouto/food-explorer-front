@@ -1,6 +1,4 @@
 import { styled } from "styled-components";
-import ravanello from "../../assets/Ravanello.png";
-import torradaParma from "../../assets/Torradas-de-Parma.png";
 
 export const Container = styled.div`
   height: 100vh;
@@ -188,6 +186,4 @@ export const DishesImg = styled.image`
   display: flex;
   width: 19.1rem;
   height: 14.9rem;
-  background: url(${ravanello}) no-repeat center center;
-  background-size: contain;
 `;

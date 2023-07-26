@@ -1,6 +1,4 @@
 import { styled } from "styled-components";
-import ravanello from "../../assets/Ravanello.png";
-import torradaParma from "../../assets/Torradas-de-Parma.png";
 
 export const Container = styled.div`
   display: flex;
@@ -10,18 +8,22 @@ export const Container = styled.div`
   margin-bottom: 2.4rem;
   gap: 1.2rem;
 
+  @media (min-width: 1024px) {
+    width: 30rem;
+  }
+
   .food-details:hover {
     cursor: pointer;
   }
 
   .heart-icon {
     position: relative;
-    top: -10rem;
-    left: 9rem;
+    top: -16rem;
+    left: 11rem;
 
     @media (min-width: 1024px) {
       position: relative;
-      top: -19rem;
+      top: -16rem;
       left: 12rem;
     }
   }
@@ -37,14 +39,11 @@ export const Container = styled.div`
       display: flex;
       flex-direction: row;
       word-wrap: break-word;
-      width: 100%;
       font-size: 1.4rem;
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
-      margin-right: -9rem;
-      margin-left: -9rem;
-      padding-left: 4rem;
+      height: 6.8rem;
     }
   }
 
@@ -104,6 +103,7 @@ export const Container = styled.div`
     font-weight: 500;
     line-height: 2.4rem;
     padding: 0 4.4rem;
+    margin-top: 2rem;
 
     @media (min-width: 1024px) {
       font-size: 1.4rem;
@@ -112,15 +112,6 @@ export const Container = styled.div`
       padding: 1.2rem 2.4rem;
       margin-left: 1.6rem;
       margin-top: -1.5rem;
-    }
-  }
-
-  > div {
-    display: flex;
-    flex-direction: row;
-
-    svg:first-child {
-      margin-bottom: 0.5rem;
     }
   }
 
@@ -136,26 +127,13 @@ export const Container = styled.div`
       font-style: normal;
       font-weight: 700;
       line-height: 140%;
-    }
-  }
-
-  > section {
-    svg {
-      width: 8.8rem;
-      height: 8.8rem;
-
-      @media (min-width: 1024px) {
-        width: 17.6rem;
-        height: 17.6rem;
-      }
+      word-wrap: break-word;
     }
   }
 `;
 
-export const DishesImg = styled.image`
+export const DishesImg = styled.img`
   display: flex;
-  width: 19.1rem;
-  height: 14.9rem;
-  background: url(${ravanello}) no-repeat center center;
-  background-size: contain;
+  max-width: 19.1rem;
+  max-height: 14.9rem;
 `;

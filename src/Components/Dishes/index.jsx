@@ -1,6 +1,8 @@
 import { Container, DishesImg } from "./styles";
+import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
 
 import { ReactSVG } from "react-svg";
 
@@ -11,29 +13,45 @@ import heart from "../../assets/heart.svg";
 import { Button } from "../Button";
 
 export function Dishes({ data, ...rest }) {
+  const dishesImage = `${api.defaults.baseURL}/files/${data.image}`;
+  const [quantity, setQuantity] = useState(1);
+
   const navigate = useNavigate();
 
   function GoDetails() {
     navigate("/Details/1");
   }
 
+  function handlePlus() {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  }
+
+  function handleMinus() {
+    if (quantity > 1) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  }
+
+  const totalPrice = quantity * data.price;
+  const totalPriceBr = totalPrice.toLocaleString("pt-BR", { minimumFractionDigits: 2 });
+
   return (
     <Container {...rest}>
       <section className="food-details">
-        <DishesImg onClick={GoDetails} />
+        <DishesImg src={dishesImage} onClick={GoDetails} />
       </section>
       <ReactSVG className="heart-icon" src={heart} alt="icone de coração com o interior vazio" />
-      <h3>Salada Ravanello</h3>
-      <p className="dish-description">Rabanetes, folhas verdes e molho agridoce salpicados com gergelim</p>
+      <h3>{data.name}</h3>
+      <p className="dish-description">{data.description}</p>
       <p className="pricing">
         R$
-        <span>49,97</span>
+        <span>{totalPriceBr}</span>
       </p>
       <div className="pricing-include">
         <div>
-          <ReactSVG src={minus} alt="botão de menos" />
-          <p>00</p>
-          <ReactSVG src={plus} alt="botao de mais" />
+          <ReactSVG src={minus} onClick={handleMinus} alt="botão de menos" />
+          <p>{quantity.toString().padStart(2, "0")}</p>
+          <ReactSVG src={plus} onClick={handlePlus} alt="botao de mais" />
         </div>
         <div>
           <Button className="button">Incluir</Button>

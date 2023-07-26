@@ -109,12 +109,6 @@ export const Container = styled.div`
     grid-area: footer;
   }
 
-  .dishes {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 2.8rem;
-  }
 
   > main {
     grid-area: content;
@@ -128,27 +122,34 @@ export const Container = styled.div`
         margin-top: 3.2rem;
       }
     }
+  }
+`;
 
-    > hero {
-      display: flex;
-      flex-direction: column;
-      margin-left: 2.4rem;
+export const Hero = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.4rem;
 
-      @media (min-width: 1024px) {
-        margin-left: 3.4rem;
-      }
+  @media (min-width: 1024px) {
+    margin-left: 3.4rem;
+  }
 
-      h2 {
-        font-size: 1.8rem;
-        font-family: ${({ theme }) => theme.fonts.poppins};
-        font-weight: 500;
-        line-height: 140%;
-        margin-bottom: 2.4rem;
+  h2 {
+    font-size: 1.8rem;
+    font-family: ${({ theme }) => theme.fonts.poppins};
+    font-weight: 500;
+    line-height: 140%;
+    margin-bottom: 2.4rem;
 
-        @media (min-width: 1024px) {
-          font-size: 3.2rem;
-        }
-      }
+    @media (min-width: 1024px) {
+      font-size: 3.2rem;
     }
   }
+`;
+
+export const DishesShow = styled.section`
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 2.8rem;
 `;
