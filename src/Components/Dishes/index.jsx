@@ -18,8 +18,8 @@ export function Dishes({ data, ...rest }) {
 
   const navigate = useNavigate();
 
-  function GoDetails() {
-    navigate("/Details/1");
+  function GoDetails(id) {
+    navigate(`/Details/${id}`);
   }
 
   function handlePlus() {
@@ -38,7 +38,7 @@ export function Dishes({ data, ...rest }) {
   return (
     <Container {...rest}>
       <section className="food-details">
-        <DishesImg src={dishesImage} onClick={GoDetails} />
+        <DishesImg src={dishesImage} onClick={() => GoDetails(data.id)} />
       </section>
       <ReactSVG className="heart-icon" src={heart} alt="icone de coração com o interior vazio" />
       <h3>{data.name}</h3>

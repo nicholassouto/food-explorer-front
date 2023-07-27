@@ -15,22 +15,23 @@ export function Home() {
   const [dishesSobremesa, setDishesSobremesa] = useState([]);
   const [dishesBebidas, setDishesBebidas] = useState([]);
 
+
   useEffect(() => {
     async function fetchDishes() {
-      const responseRefeicao = await api.get(`/dishes?category=refeicao`);
-      const responseSobremesa = await api.get(`/dishes?category=sobremesa`);
-      const responseBebidas = await api.get(`/dishes?category=bebidas`);
+      const responseRefeicao = await api.get(`/dishes?category=refeicao${search ? `&search=${search}` : ""}`);
+      const responseSobremesa = await api.get(`/dishes?category=sobremesa${search ? `&search=${search}` : ""}`);
+      const responseBebidas = await api.get(`/dishes?category=bebidas${search ? `&search=${search}` : ""}`);
       setDishesRefeicao(responseRefeicao.data);
       setDishesSobremesa(responseSobremesa.data);
       setDishesBebidas(responseBebidas.data);
     }
 
     fetchDishes();
-  }, []);
+  }, [search]);
 
   return (
     <Container>
-      <Header className="header" />
+      <Header className="header" setSearch={setSearch} />
       <main>
         <div>
           <Foods />

@@ -1,11 +1,9 @@
 import { Container } from "./styles";
 
-export function Ingredients({ data, ...rest }) {
+export function Ingredients({ title, ...rest }) {
   return (
     <Container {...rest}>
-      <div>
-        <p>alface</p>
-      </div>
+      <p>{title}</p>
     </Container>
   );
 }

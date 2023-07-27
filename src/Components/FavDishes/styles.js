@@ -39,7 +39,7 @@ export const Container = styled.div`
   }
 `;
 
-export const DishesImg = styled.image`
+export const DishesImg = styled.img`
   display: flex;
   width: 19.1rem;
   height: 14.9rem;

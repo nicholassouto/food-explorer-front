@@ -69,6 +69,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 4.8rem;
+    margin-bottom: 2rem;
     gap: 1.5rem;
 
     @media (min-width: 1024px) {
@@ -163,6 +164,11 @@ export const Container = styled.div`
       flex-direction: row;
     }
 
+    > div {
+      display: flex;
+      flex-direction: row;
+    }
+
     > section {
       display: flex;
       flex-direction: row;
@@ -182,8 +188,13 @@ export const Container = styled.div`
   }
 `;
 
-export const DishesImg = styled.image`
+export const DishesImg = styled.img`
   display: flex;
   width: 19.1rem;
   height: 14.9rem;
+
+  @media (min-width: 1024px) {
+    width: 39.1rem;
+    height: 34.9rem;
+  }
 `;

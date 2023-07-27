@@ -45,16 +45,16 @@ export function Menu() {
           <ReactSVG src={magnifier} />
           <input placeholder="Busque por pratos ou ingredientes" />
         </Search>
-        <Dishes />
-        <h1>
+        {/* <Dishes /> */}
+        <section>
           <h2 onClick={handleFavorites}>Meus Favoritos</h2>
-        </h1>
-        <h1>
+        </section>
+        <section>
           <h2 onClick={handleBought}>Historico de Pedidos</h2>
-        </h1>
-        <h1>
+        </section>
+        <section>
           <h2 onClick={goHome}>Sair</h2>
-        </h1>
+        </section>
       </main>
       <Footer className="footer" />
     </Container>

@@ -50,7 +50,7 @@ export const Container = styled.div`
       margin-left: 3.8rem;
     }
 
-    > h1 {
+    > section {
       padding-bottom: 1rem;
       margin-left: 3rem;
       margin-right: 3rem;

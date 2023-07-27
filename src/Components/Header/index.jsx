@@ -12,7 +12,7 @@ import signOutIcon from "../../assets/signOut.svg";
 import { Button } from "../Button";
 import { Search } from "../Search";
 
-export function Header() {
+export function Header({ setSearch }) {
   const { signOut } = useAuth();
 
   const navigate = useNavigate();
@@ -36,6 +36,10 @@ export function Header() {
   function handleShopList() {
     navigate("/ShopList");
   }
+  function handleSearchChange(event) {
+    const searchValue = event.target.value;
+    setSearch(searchValue);
+  }
 
   return (
     <Container>
@@ -48,7 +52,7 @@ export function Header() {
       </Title>
       <Search className="search-bar">
         <ReactSVG src={magnifier} />
-        <input placeholder="Busque por pratos ou ingredientes" />
+        <input placeholder="Busque por pratos ou ingredientes" onChange={handleSearchChange} />
       </Search>
       <PedidosFavoritos>
         <p onClick={handleFavorites}>Meus favoritos</p>
@@ -66,7 +70,7 @@ export function Header() {
         </p>
       </Button>
       <div>
-        <ReactSVG onClick={(signOut)} src={signOutIcon} alt="icone de saida" />
+        <ReactSVG onClick={signOut} src={signOutIcon} alt="icone de saida" />
       </div>
     </Container>
   );

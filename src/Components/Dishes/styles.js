@@ -86,6 +86,7 @@ export const Container = styled.div`
         font-style: normal;
         font-weight: 400;
         line-height: 100%;
+       
       }
     }
   }
@@ -104,6 +105,7 @@ export const Container = styled.div`
     line-height: 2.4rem;
     padding: 0 4.4rem;
     margin-top: 2rem;
+   
 
     @media (min-width: 1024px) {
       font-size: 1.4rem;
