@@ -5,17 +5,10 @@ export const Container = styled.div`
   flex-direction: row;
   margin-bottom: 1rem;
 
-  svg {
-    width: 10rem;
-    height: 10rem;
-  }
-
   > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-left: 3.5rem;
 
     @media (min-width: 1024px){
       margin-bottom: 3rem;
@@ -26,22 +19,30 @@ export const Container = styled.div`
       font-size: 2rem;
       font-weight: 500;
       line-height: 160%;
-      margin-left: -1rem;
+      margin-left: 1rem;
     }
+  }
 
-    p {
+  .button {
       color: ${({ theme }) => theme.tomato.tomato400};
       font-size: 1.2rem;
       font-weight: 400;
       line-height: 160%;
-      margin-left: -7rem;
+      background: none;
+      border: none;
+      margin-left: 1rem;
+
     }
-  }
+
+    .button:hover{
+      cursor: pointer;
+    }
 `;
 
 export const DishesImg = styled.img`
   display: flex;
-  width: 19.1rem;
-  height: 14.9rem;
+  width: 10rem;
+  height: 10rem;
+  margin-left: 3rem;
 `;
 

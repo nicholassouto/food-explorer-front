@@ -67,3 +67,16 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const DishesShow = styled.section`
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 2.8rem;
+`;
+
+export const Hero = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 3rem;
+`;

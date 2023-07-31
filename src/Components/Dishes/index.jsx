@@ -1,5 +1,5 @@
 import { Container, DishesImg } from "./styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
@@ -9,12 +9,14 @@ import { ReactSVG } from "react-svg";
 import plus from "../../assets/plus.svg";
 import minus from "../../assets/minus.svg";
 import heart from "../../assets/heart.svg";
+import heartRed from "../../assets/heartRed.svg";
 
 import { Button } from "../Button";
 
 export function Dishes({ data, ...rest }) {
   const dishesImage = `${api.defaults.baseURL}/files/${data.image}`;
   const [quantity, setQuantity] = useState(1);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const navigate = useNavigate();
 
@@ -32,6 +34,34 @@ export function Dishes({ data, ...rest }) {
     }
   }
 
+  async function handleFavoriteCheck() {
+    try {
+      if (isFavorite) {
+        setIsFavorite(false);
+        await api.delete(`/favorites/${data.id}`);
+      } else {
+        setIsFavorite(true);
+        await api.post("/favorites", { dishes_id: data.id });
+      }
+      setIsFavorite((prevIsFavorite) => !prevIsFavorite);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
+  useEffect(() => {
+    async function checkIfFavorite() {
+      try {
+        const response = await api.get(`/favorites`);
+        const favoritesIds = response.data.map((favorite) => favorite.id);
+        setIsFavorite(favoritesIds.includes(data.id));
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    checkIfFavorite();
+  }, [data.id, isFavorite]);
+
   const totalPrice = quantity * data.price;
   const totalPriceBr = totalPrice.toLocaleString("pt-BR", { minimumFractionDigits: 2 });
 
@@ -40,7 +70,12 @@ export function Dishes({ data, ...rest }) {
       <section className="food-details">
         <DishesImg src={dishesImage} onClick={() => GoDetails(data.id)} />
       </section>
-      <ReactSVG className="heart-icon" src={heart} alt="icone de coração com o interior vazio" />
+      <ReactSVG
+        className="heart-icon"
+        src={isFavorite ? heartRed : heart}
+        alt="icone de coração com o interior vazio"
+        onClick={()=>handleFavoriteCheck()}
+      />
       <h3>{data.name}</h3>
       <p className="dish-description">{data.description}</p>
       <p className="pricing">

@@ -17,6 +17,11 @@ export function Header({ setSearch }) {
 
   const navigate = useNavigate();
 
+  function handleSignOut() {
+    signOut();
+    navigate("/")
+  }
+
   function goToMenu() {
     navigate("/menu");
   }
@@ -70,7 +75,7 @@ export function Header({ setSearch }) {
         </p>
       </Button>
       <div>
-        <ReactSVG onClick={signOut} src={signOutIcon} alt="icone de saida" />
+        <ReactSVG onClick={handleSignOut} src={signOutIcon} alt="icone de saida" />
       </div>
     </Container>
   );
