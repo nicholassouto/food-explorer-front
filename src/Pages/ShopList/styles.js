@@ -66,6 +66,7 @@ export const Container = styled.div`
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    margin-left: 2rem;
 
     @media (min-width: 1024px) {
       margin-left: 9.3rem;

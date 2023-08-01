@@ -6,16 +6,20 @@ export const Container = styled.div`
   flex-direction: row;
   margin-bottom: 1rem;
 
-  svg {
-    width: 10rem;
-    height: 10rem;
-  }
+  .button-remove {
+      color: ${({ theme }) => theme.tomato.tomato400};
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 160%;
+      background: none;
+      border: none;
+
+    }
 
   > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     margin-left: 3.5rem;
 
     @media (min-width: 1024px){
@@ -27,7 +31,6 @@ export const Container = styled.div`
       font-size: 2rem;
       font-weight: 500;
       line-height: 160%;
-      margin-left: -1rem;
     }
 
     p {
@@ -40,8 +43,10 @@ export const Container = styled.div`
   }
 `;
 
-export const DishesImg = styled.image`
+export const DishesImg = styled.img`
   display: flex;
-  width: 19.1rem;
-  height: 14.9rem;
+  width: 10rem;
+  height: 10rem;
+  margin-left: 2rem;
+
 `;

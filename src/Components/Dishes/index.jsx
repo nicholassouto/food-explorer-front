@@ -34,6 +34,16 @@ export function Dishes({ data, ...rest }) {
     }
   }
 
+  async function handleBuy() {
+    try {
+      for (let i = 0; i < quantity; i++) {
+        await api.post("/buy", { dishes_id: data.id });
+      }
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  }
+
   async function handleFavoriteCheck() {
     try {
       if (isFavorite) {
@@ -74,7 +84,7 @@ export function Dishes({ data, ...rest }) {
         className="heart-icon"
         src={isFavorite ? heartRed : heart}
         alt="icone de coração com o interior vazio"
-        onClick={()=>handleFavoriteCheck()}
+        onClick={() => handleFavoriteCheck()}
       />
       <h3>{data.name}</h3>
       <p className="dish-description">{data.description}</p>
@@ -89,7 +99,9 @@ export function Dishes({ data, ...rest }) {
           <ReactSVG src={plus} onClick={handlePlus} alt="botao de mais" />
         </div>
         <div>
-          <Button className="button">Incluir</Button>
+          <Button onClick={handleBuy} className="button">
+            Incluir
+          </Button>
         </div>
       </div>
     </Container>
