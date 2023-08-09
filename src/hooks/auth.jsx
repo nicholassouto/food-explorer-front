@@ -5,6 +5,7 @@ export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
+  const [buyCount, setBuyCount] = useState(0);
 
   async function signIn({ email, password }) {
     try {
@@ -32,6 +33,16 @@ function AuthProvider({ children }) {
     setData({});
   }
 
+  async function updateBuyCount() {
+    try {
+      const response = await api.get(`/buy`);
+      const updatedBuyCount = response.data.length;
+      setBuyCount(updatedBuyCount);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     const token = localStorage.getItem("@foodexplorer:token");
     const user = localStorage.getItem("@foodexplorer:user");
@@ -44,9 +55,21 @@ function AuthProvider({ children }) {
         user: JSON.parse(user),
       });
     }
+
+    async function handleBuyCount() {
+      try {
+        const response = await api.get(`/buy`);
+        const buyCount = response.data.length;
+        setBuyCount(buyCount);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    handleBuyCount();
   }, []);
 
-  return <AuthContext.Provider value={{ signIn, user: data.user, signOut }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ signIn, user: data.user, signOut, buyCount, updateBuyCount }}>{children}</AuthContext.Provider>;
 }
 
 function useAuth() {

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
+import { useAuth } from "../../hooks/auth";
+
 import { ReactSVG } from "react-svg";
 
 import plus from "../../assets/plus.svg";
@@ -18,6 +20,7 @@ export function Dishes({ data, ...rest }) {
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const { updateBuyCount } = useAuth();
   const navigate = useNavigate();
 
   function GoDetails(id) {
@@ -39,6 +42,7 @@ export function Dishes({ data, ...rest }) {
       for (let i = 0; i < quantity; i++) {
         await api.post("/buy", { dishes_id: data.id });
       }
+      updateBuyCount();
     } catch (error) {
       alert(error.response.data.message);
     }

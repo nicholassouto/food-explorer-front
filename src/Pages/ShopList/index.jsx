@@ -46,7 +46,9 @@ export function ShopList() {
       <Header className="header" />
       <main>
         <div>
+
           <h1>Meus Pedidos</h1>
+
           {data && (
             <section>
               {data.map((buy) => (
@@ -54,6 +56,7 @@ export function ShopList() {
               ))}
             </section>
           )}
+          
           <h3>
             Total: R$ <span>{totalPricesBr}</span>
           </h3>

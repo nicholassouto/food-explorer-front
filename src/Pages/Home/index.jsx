@@ -15,7 +15,6 @@ export function Home() {
   const [dishesSobremesa, setDishesSobremesa] = useState([]);
   const [dishesBebidas, setDishesBebidas] = useState([]);
 
-
   useEffect(() => {
     async function fetchDishes() {
       const responseRefeicao = await api.get(`/dishes?category=refeicao${search ? `&search=${search}` : ""}`);

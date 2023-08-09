@@ -14,12 +14,13 @@ import { Search } from "../Search";
 
 export function Header({ setSearch }) {
   const { signOut } = useAuth();
-
   const navigate = useNavigate();
+
+  const {buyCount} = useAuth();
 
   function handleSignOut() {
     signOut();
-    navigate("/")
+    navigate("/");
   }
 
   function goToMenu() {
@@ -65,13 +66,13 @@ export function Header({ setSearch }) {
       </PedidosFavoritos>
       <div onClick={handleShopList} className="receipt">
         <ReactSVG src={receipt} alt="icone de recibo" />
-        <span>0</span>
+        <span>{buyCount}</span>
       </div>
       <Button onClick={handleShopList} className="orders">
         <ReactSVG src={receipt} alt="icone de recibo" />
         <p>Pedidos</p>
         <p>
-          (<span>0</span>)
+          <span>{`(${buyCount})`}</span>
         </p>
       </Button>
       <div>
