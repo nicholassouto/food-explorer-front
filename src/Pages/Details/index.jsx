@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
+import { useAuth } from "../../hooks/auth";
 
 import minus from "../../assets/minus.svg";
 import plus from "../../assets/plus.svg";
@@ -21,6 +22,7 @@ export function Details() {
   const [price, setPrice] = useState(0);
   const [totalPriceBr, setTotalPriceBr] = useState(0);
   const [dishesImage, setDishesImage] = useState(null);
+  const { updateBuyCount } = useAuth();
 
   const params = useParams();
 
@@ -37,6 +39,19 @@ export function Details() {
   function handleMinus() {
     if (quantity > 1) {
       setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  }
+
+  async function handleBuy() {
+    if (data) {
+      try {
+        for (let i = 0; i < quantity; i++) {
+          await api.post("/buy", { dishes_id: data.id });
+        }
+        updateBuyCount();
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     }
   }
 
@@ -91,7 +106,7 @@ export function Details() {
                 <ReactSVG src={plus} onClick={handlePlus} alt="botao de mais" />
                 <Button className="button">
                   <ReactSVG src={receipt} alt="icone de recibo" />
-                  <p>
+                  <p onClick={handleBuy}>
                     incluir ∙ R$ <span>{totalPriceBr}</span>
                   </p>
                 </Button>

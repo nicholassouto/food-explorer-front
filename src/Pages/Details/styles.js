@@ -158,15 +158,23 @@ export const Container = styled.div`
   > main {
     grid-area: content;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 
     @media (min-width: 1024px) {
-      display: flex;
-      flex-direction: row;
-    }
+        display: flex;
+        flex-direction: row;
+      }
 
+    
     > div {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+
+      @media (min-width: 1024px) {
+        display: flex;
+        flex-direction: row;
+      }
     }
 
     > section {
@@ -190,11 +198,12 @@ export const Container = styled.div`
 
 export const DishesImg = styled.img`
   display: flex;
-  width: 19.1rem;
-  height: 14.9rem;
+  width: 26.4rem;
+  height: 26.4rem;
+  margin-left: 2rem;
 
   @media (min-width: 1024px) {
     width: 39.1rem;
-    height: 34.9rem;
+    height: 38.9rem;
   }
 `;

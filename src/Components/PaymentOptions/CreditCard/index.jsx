@@ -2,17 +2,36 @@ import { Container, Data } from "./styles";
 
 import { useState } from "react";
 
+import { api } from "../../../services/api";
+import { useAuth } from "../../../hooks/auth";
+
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "../../Button";
 import { AwaitCreditCard } from "../../AwaitPayment/AwaitCreditCard";
 
 export function CreditCard() {
+  const { updateBuyCount } = useAuth();
   const [showAwaitCreditCard, setShowAwaitCreditCard] = useState(false);
   const navigate = useNavigate();
 
-  function handlePayment() {
-    navigate("/PaymentFinish");
+  async function handlePayment() {
+    try {
+      await api.post("/bought");
+
+      const response = await api.get("/buy");
+
+      for (let i = 0; i < response.data.length; i++) {
+        const itemIdToDelete = response.data[i].id;
+        await api.delete(`/buy/${itemIdToDelete}`);
+      }
+
+      updateBuyCount();
+
+      navigate("/PaymentFinish");
+    } catch (error) {
+      console.error("Erro ao finalizar o pagamento:", error);
+    }
   }
 
   const handleCvcInputChange = (e) => {
@@ -49,9 +68,24 @@ export function CreditCard() {
     return formattedValue;
   };
 
-  const handlePaymentButtonDeskClick = () => {
-    setShowAwaitCreditCard(true);
-  };
+  async function handlePaymentButtonDeskClick() {
+    try {
+      await api.post("/bought");
+
+      const response = await api.get("/buy");
+
+      for (let i = 0; i < response.data.length; i++) {
+        const itemIdToDelete = response.data[i].id;
+        await api.delete(`/buy/${itemIdToDelete}`);
+      }
+
+      updateBuyCount();
+
+      setShowAwaitCreditCard(true);
+    } catch (error) {
+      console.error("Erro ao finalizar o pagamento:", error);
+    }
+  }
 
   return (
     <Container>

@@ -48,7 +48,7 @@ export function SignUp() {
       <section>
         <h1>Crie sua conta</h1>
         <Dados>
-          <label htmlFor="name">E-mail</label>
+          <label htmlFor="name">Nome</label>
           <input
             type="text"
             id="name"

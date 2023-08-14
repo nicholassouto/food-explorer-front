@@ -5,28 +5,38 @@ import redDot from "../../assets/redDot.svg";
 import orangeDot from "../../assets/orangeDot.svg";
 import greenDot from "../../assets/greenDot.svg";
 
-export function BoughtDishes({ data, ...rest }) {
+export function BoughtDishes({ order, orderNumber }) {
+  const getStatusIcon = (status) => {
+    if (status === "pendente") {
+      return <ReactSVG src={redDot} alt="ponto vermelho" />;
+    } else if (status === "processando") {
+      return <ReactSVG src={orangeDot} alt="ponto laranja" />;
+    } else if (status === "pronto") {
+      return <ReactSVG src={greenDot} alt="ponto verde" />;
+    }
+    return null;
+  };
   return (
-    <Container {...rest}>
+    <Container>
       <main>
         <Data>
-          <p>000001</p>
+          <p>{String(orderNumber).padStart(6, "0")}</p>
           <div className="status">
-            <ReactSVG src={redDot} alt="ponto vermelho" />
-            <span>Pendente</span>
+            {getStatusIcon(order.status)}
+            <span>{order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span>
           </div>
           <div>
-            <p className="id">000001 </p>
+            <p className="id">{String(orderNumber).padStart(6, "0")}</p>
           </div>
           <div className="dishes">
-            <p>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá 1</p>
+            <p>{order.items}</p>
           </div>
           <div>
-            <p>20/05 às 18h00</p>
+            <p>{new Date(order.created_at).toLocaleString()}</p>
           </div>
         </Data>
         <Dishes>
-          <p>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</p>
+          <p>{order.items}</p>
         </Dishes>
       </main>
     </Container>
