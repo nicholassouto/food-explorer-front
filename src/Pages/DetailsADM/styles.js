@@ -192,7 +192,12 @@ export const Container = styled.div`
         margin-top: 0.6rem;
         margin-left: 3rem;
       }
+
+      svg:hover, p:hover{
+        cursor: pointer;
+      }
     }
+
   }
 `;
 

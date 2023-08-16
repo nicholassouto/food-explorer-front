@@ -58,9 +58,16 @@ function AuthProvider({ children }) {
 
     async function handleBuyCount() {
       try {
-        const response = await api.get(`/buy`);
-        const buyCount = response.data.length;
-        setBuyCount(buyCount);
+        const token = localStorage.getItem("@foodexplorer:token");
+        const user = localStorage.getItem("@foodexplorer:user");
+
+        if (token && user) {
+          api.defaults.headers.authorization = `Bearer ${token}`;
+
+          const response = await api.get(`/buy`);
+          const buyCount = response.data.length;
+          setBuyCount(buyCount);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -69,7 +76,11 @@ function AuthProvider({ children }) {
     handleBuyCount();
   }, []);
 
-  return <AuthContext.Provider value={{ signIn, user: data.user, signOut, buyCount, updateBuyCount }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ signIn, user: data.user, signOut, buyCount, updateBuyCount }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 function useAuth() {

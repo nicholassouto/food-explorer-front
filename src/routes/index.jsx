@@ -3,8 +3,9 @@ import { useAuth } from "../hooks/auth";
 
 import { AppRoutes } from "./app.routes";
 import { AuthRoutes } from "./auth.routes";
+import { AppADMRoutes } from "./appADM.routes";
 
 export function Routes() {
   const { user } = useAuth();
-  return <BrowserRouter>{!user ? <AuthRoutes /> : <AppRoutes />}</BrowserRouter>;
+  return <BrowserRouter>{!user ? <AuthRoutes /> : user.admin ? <AppADMRoutes /> : <AppRoutes />}</BrowserRouter>;
 }
