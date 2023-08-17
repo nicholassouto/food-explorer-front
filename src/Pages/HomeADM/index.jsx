@@ -17,9 +17,9 @@ export function HomeADM() {
 
   useEffect(() => {
     async function fetchDishes() {
-      const responseRefeicao = await api.get(`/dishes?category=refeicao${search ? `&search=${search}` : ""}`);
-      const responseSobremesa = await api.get(`/dishes?category=sobremesa${search ? `&search=${search}` : ""}`);
-      const responseBebidas = await api.get(`/dishes?category=bebidas${search ? `&search=${search}` : ""}`);
+      const responseRefeicao = await api.get(`/dishes?category=Refeicao${search ? `&search=${search}` : ""}`);
+      const responseSobremesa = await api.get(`/dishes?category=Sobremesa${search ? `&search=${search}` : ""}`);
+      const responseBebidas = await api.get(`/dishes?category=Bebidas${search ? `&search=${search}` : ""}`);
       setDishesRefeicao(responseRefeicao.data);
       setDishesSobremesa(responseSobremesa.data);
       setDishesBebidas(responseBebidas.data);
