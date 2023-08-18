@@ -7,19 +7,21 @@ import { api } from "../../services/api";
 
 import arrowLeft from "../../assets/arrowLeft.svg";
 import upload from "../../assets/upload.svg";
+import placeholderDish from "../../assets/placeholder.png";
 
 import { HeaderADM } from "../../Components/HeaderADM";
 import { Footer } from "../../Components/Footer";
 import { IngredientsAdd } from "../../Components/IngredientsAdd";
 import { Button } from "../../Components/Button";
 
-export function EditPlateADM() {
-  const [data, setData] = useState(null);
-  const [description, setDescription] = useState(data?.description || "");
+export function CreatePlateADM() {
+  const [description, setDescription] = useState("");
   const [addIngredient, setAddIngredient] = useState("");
   const [price, setPrice] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [dishName, setDishName] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Refeicao");
   const [image, setImage] = useState("");
+  const [ingredients, setIngredients] = useState([]);
 
   const params = useParams();
 
@@ -30,19 +32,20 @@ export function EditPlateADM() {
   }
 
   const handleDeleteIngredient = (ingredientId) => {
-    const updateIngredients = data.ingredients.filter((ingredient) => ingredient.id !== ingredientId);
-    setData((prevData) => ({ ...prevData, ingredients: updateIngredients }));
+    const updateIngredients = ingredients.filter((ingredient) => ingredient.id !== ingredientId);
+    setIngredients(updateIngredients);
   };
 
   const handleAddIngredient = () => {
-    const newIngredient = {
-      id: new Date().getTime(),
-      tags: addIngredient,
-    };
-    const updatedIngredients = [...data.ingredients, newIngredient];
-    console.log(updatedIngredients);
-    setData((prevData) => ({ ...prevData, ingredients: updatedIngredients }));
-    setAddIngredient("");
+    if (addIngredient.trim() !== "") {
+      const newIngredient = {
+        id: new Date().getTime(),
+        tags: addIngredient,
+      };
+      const updatedIngredients = [...ingredients, newIngredient];
+      setIngredients(updatedIngredients);
+      setAddIngredient("");
+    }
   };
 
   const handleSelectImage = async (event) => {
@@ -58,7 +61,6 @@ export function EditPlateADM() {
       });
 
       setImage(response.data.image);
-      alert("Imagem atualizada com sucesso!");
     } catch (error) {
       alert("Error ao atualizar imagem:", error);
     }
@@ -66,36 +68,20 @@ export function EditPlateADM() {
 
   const handleSaveChanges = async () => {
     try {
-      if (!data) {
-        return alert("Não é possivel salvar");
-      }
-
       const updateData = {
-        name: data.name,
-        description,
+        name: dishName,
+        description: description,
         price: price,
         category: selectedCategory,
-        ingredients: data.ingredients.map((ingredient) => ingredient.tags),
+        ingredients: ingredients.map((ingredient) => ingredient.tags),
       };
-
-      await api.put(`/dishes/${params.id}`, updateData);
-
-      alert("Prato atualizado com sucesso!");
+      await api.put(`/dishes`, updateData);
+      console.log(updateData);
+      alert("Prato criado com sucesso!");
     } catch (error) {
       alert(error);
     }
   };
-
-  useEffect(() => {
-    async function fetchDishes() {
-      const response = await api.get(`/dishes/${params.id}`);
-      setData(response.data);
-      setDescription(response.data.description);
-      setPrice(response.data.price.toString());
-      setSelectedCategory(response.data.category);
-    }
-    fetchDishes();
-  }, []);
 
   return (
     <Container>
@@ -105,7 +91,7 @@ export function EditPlateADM() {
           <ReactSVG src={arrowLeft} alt="seta para esquerda" />
           <p>voltar</p>
         </section>
-        <h2>Editar prato</h2>
+        <h2>Criar prato</h2>
 
         <div className="name-pic-cat">
           <div>
@@ -127,7 +113,12 @@ export function EditPlateADM() {
 
           <div className="dishe">
             <p>Prato</p>
-            <input type="text" value={data?.name} onChange={(e) => setData({ ...data, name: e.target.value })} />
+            <input
+              placeholder="Nome do prato"
+              type="text"
+              value={dishName}
+              onChange={(e) => setDishName(e.target.value)}
+            />
           </div>
 
           <div className="category">
@@ -144,7 +135,7 @@ export function EditPlateADM() {
           <div>
             <p>Ingredients</p>
             <section>
-              {data?.ingredients.map((ingredient) => (
+              {ingredients.map((ingredient) => (
                 <IngredientsAdd
                   key={String(ingredient.id)}
                   value={ingredient.tags}
@@ -165,6 +156,7 @@ export function EditPlateADM() {
             <p>Preço</p>
             <input
               className="price-change"
+              placeholder="00,00"
               type="text"
               inputMode="numeric"
               pattern="^\d+(,\d{1,2})?$"
@@ -189,6 +181,7 @@ export function EditPlateADM() {
           <p>Descrição</p>
           <textarea
             value={description}
+            placeholder="Descrição do prato"
             onChange={(e) => {
               setDescription(e.target.value);
               e.target.style.height = "auto";
@@ -198,10 +191,9 @@ export function EditPlateADM() {
           ></textarea>
         </div>
 
-        <div className="save-delete">
-          <Button className="delete-dish">Excluir Prato</Button>
+        <div className="save">
           <Button onClick={handleSaveChanges} className="save-dish">
-            Salvar Alterações
+            Salvar Prato
           </Button>
         </div>
       </main>

@@ -18,27 +18,12 @@ export const Container = styled.div`
     grid-area: footer;
   }
 
-  .save-delete {
+  .save {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: end;
     margin-top: 2rem;
     margin-bottom: 2rem;
-  }
-
-  .delete-dish {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: ${({ theme }) => theme.dark.dark800};
-    color: ${({ theme }) => theme.light.light100};
-    font-family: ${({ theme }) => theme.fonts.poppins};
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 2.4rem;
-    border-radius: 0.5rem;
-    padding: 1.2rem 3.4rem;
   }
 
   .save-dish {

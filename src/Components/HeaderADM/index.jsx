@@ -38,8 +38,8 @@ export function HeaderADM({ setSearch }) {
     navigate("/Bought");
   }
 
-  function handleShopList() {
-    navigate("/ShopList");
+  function handleNewPlate() {
+    navigate("/CreatePlateADM");
   }
   function handleSearchChange(event) {
     const searchValue = event.target.value;
@@ -64,7 +64,7 @@ export function HeaderADM({ setSearch }) {
         <p onClick={handleSignUpADM}>Cadastrar ADM</p>
         <p onClick={handleBought}>Pedidos dos Clientes</p>
       </PedidosFavoritos>
-      <Button onClick={handleShopList} className="orders">
+      <Button onClick={handleNewPlate} className="orders">
         <p>Novo Prato</p>
       </Button>
       <div>
