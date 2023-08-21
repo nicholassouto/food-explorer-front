@@ -7,6 +7,7 @@ import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
 
 import { ReactSVG } from "react-svg";
+import placeholderDishes from "../../assets/dishes.svg";
 
 import plus from "../../assets/plus.svg";
 import minus from "../../assets/minus.svg";
@@ -16,7 +17,7 @@ import heartRed from "../../assets/heartRed.svg";
 import { Button } from "../Button";
 
 export function Dishes({ data, ...rest }) {
-  const dishesImage = `${api.defaults.baseURL}/files/${data.image}`;
+  const dishesImage = data.image ? `${api.defaults.baseURL}/files/${data.image}` : null;
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -82,7 +83,11 @@ export function Dishes({ data, ...rest }) {
   return (
     <Container {...rest}>
       <section className="food-details">
-        <DishesImg src={dishesImage} onClick={() => GoDetails(data.id)} />
+        {dishesImage ? (
+          <DishesImg src={dishesImage} onClick={() => GoDetails(data.id)} />
+        ) : (
+          <ReactSVG src={placeholderDishes} onClick={() => GoDetails(data.id)} />
+        )}
       </section>
       <ReactSVG
         className="heart-icon"

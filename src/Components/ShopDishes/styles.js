@@ -1,20 +1,18 @@
 import { styled } from "styled-components";
 
-
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
 
   .button-remove {
-      color: ${({ theme }) => theme.tomato.tomato400};
-      font-size: 1.2rem;
-      font-weight: 400;
-      line-height: 160%;
-      background: none;
-      border: none;
-
-    }
+    color: ${({ theme }) => theme.tomato.tomato400};
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 160%;
+    background: none;
+    border: none;
+  }
 
   > div {
     display: flex;
@@ -22,7 +20,7 @@ export const Container = styled.div`
     justify-content: center;
     margin-left: 3.5rem;
 
-    @media (min-width: 1024px){
+    @media (min-width: 1024px) {
       margin-bottom: 3rem;
     }
 
@@ -41,6 +39,15 @@ export const Container = styled.div`
       margin-left: -7rem;
     }
   }
+
+  svg {
+    display: flex;
+    width: 10rem;
+    height: 10rem;
+    margin-left: 3rem;
+    background-color: white;
+    border-radius: 50%;
+  }
 `;
 
 export const DishesImg = styled.img`
@@ -48,5 +55,4 @@ export const DishesImg = styled.img`
   width: 10rem;
   height: 10rem;
   margin-left: 2rem;
-
 `;

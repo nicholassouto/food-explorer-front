@@ -6,8 +6,7 @@ import { MenuADM } from "../Pages/MenuADM";
 import { SignUpADM } from "../Pages/SignUpADM";
 import { EditPlateADM } from "../Pages/EditPlateADM";
 import { CreatePlateADM } from "../Pages/CreatePlateADM";
-// import { Payment } from "../Pages/Payment";
-// import { PaymentFinish } from "../Pages/PaymentFinish";
+import { BoughtADM } from "../Pages/BoughtADM";
 
 export function AppADMRoutes() {
   return (
@@ -18,8 +17,7 @@ export function AppADMRoutes() {
       <Route path="/DetailsADM/:id" element={<DetailsADM />} />
       <Route path="/EditPlateADM/:id" element={<EditPlateADM />} />
       <Route path="/CreatePlateADM" element={<CreatePlateADM />} />
-      {/* <Route path="/Favorites" element={<Favorites />} />
-      <Route path="/PaymentFinish" element={<PaymentFinish />} /> */}
+      <Route path="/BoughtADM" element={<BoughtADM />} />
     </Routes>
   );
 }

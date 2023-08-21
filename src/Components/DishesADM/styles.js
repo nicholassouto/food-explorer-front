@@ -12,6 +12,16 @@ export const Container = styled.div`
     width: 30rem;
   }
 
+  .food-details {
+    svg {
+      display: flex;
+      max-width: 14.9rem;
+      max-height: 14.9rem;
+      background-color: white;
+      border-radius: 50%;
+    }
+  }
+
   .food-details:hover {
     cursor: pointer;
   }
@@ -86,7 +96,6 @@ export const Container = styled.div`
         font-style: normal;
         font-weight: 400;
         line-height: 100%;
-       
       }
     }
   }
@@ -105,7 +114,6 @@ export const Container = styled.div`
     line-height: 2.4rem;
     padding: 0 4.4rem;
     margin-top: 2rem;
-   
 
     @media (min-width: 1024px) {
       font-size: 1.4rem;

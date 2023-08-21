@@ -20,6 +20,20 @@ export const Container = styled.div`
 
   .food-picture {
     margin-left: 5.2rem;
+
+    svg {
+      display: flex;
+      width: 26.4rem;
+      height: 26.4rem;
+      background-color: white;
+      border-radius: 50%;
+
+      @media (min-width: 1024px) {
+        width: 39.1rem;
+        height: 38.9rem;
+      }
+    }
+
     image {
       width: 26.4rem;
       height: 26.4rem;
@@ -90,14 +104,19 @@ export const Container = styled.div`
     }
   }
 
-  .pricing-include svg {
-    height: 2.7rem;
-    width: 2.7rem;
-    margin-top: 0.5rem;
-
+  .pricing-include {
     @media (min-width: 1024px) {
-      height: 2.4rem;
-      width: 2.4rem;
+      margin-left: 10rem;
+    }
+    svg {
+      height: 2.7rem;
+      width: 2.7rem;
+      margin-top: 0.5rem;
+
+      @media (min-width: 1024px) {
+        height: 2.4rem;
+        width: 2.4rem;
+      }
     }
   }
 
@@ -162,11 +181,10 @@ export const Container = styled.div`
     flex-direction: column;
 
     @media (min-width: 1024px) {
-        display: flex;
-        flex-direction: row;
-      }
+      display: flex;
+      flex-direction: row;
+    }
 
-    
     > div {
       display: flex;
       flex-direction: column;

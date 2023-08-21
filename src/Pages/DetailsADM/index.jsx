@@ -5,6 +5,7 @@ import { ReactSVG } from "react-svg";
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 
+import placeholderDishes from "../../assets/dishes.svg";
 import arrowLeft from "../../assets/arrowLeft.svg";
 
 import { HeaderADM } from "../../Components/HeaderADM";
@@ -28,7 +29,10 @@ export function DetailsADM() {
     async function fetchDishes() {
       const response = await api.get(`/dishes/${params.id}`);
       setData(response.data);
-      setDishesImage(`${api.defaults.baseURL}/files/${response.data.image}`);
+
+      if (response.data.image) {
+        setDishesImage(`${api.defaults.baseURL}/files/${response.data.image}`);
+      }
     }
     fetchDishes();
   }, []);
@@ -49,7 +53,7 @@ export function DetailsADM() {
           <div>
             <div>
               <div className="food-picture">
-                <DishesImg src={dishesImage} />
+                {dishesImage ? <DishesImg src={dishesImage} /> : <ReactSVG src={placeholderDishes} />}
               </div>
             </div>
             <div className="food-info">

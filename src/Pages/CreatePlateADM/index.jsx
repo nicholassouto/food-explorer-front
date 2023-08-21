@@ -1,13 +1,11 @@
 import { Container } from "./styles";
-import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ReactSVG } from "react-svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { api } from "../../services/api";
 
 import arrowLeft from "../../assets/arrowLeft.svg";
 import upload from "../../assets/upload.svg";
-import placeholderDish from "../../assets/placeholder.png";
 
 import { HeaderADM } from "../../Components/HeaderADM";
 import { Footer } from "../../Components/Footer";
@@ -20,10 +18,8 @@ export function CreatePlateADM() {
   const [price, setPrice] = useState("");
   const [dishName, setDishName] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Refeicao");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState();
   const [ingredients, setIngredients] = useState([]);
-
-  const params = useParams();
 
   const navigate = useNavigate();
 
@@ -45,24 +41,7 @@ export function CreatePlateADM() {
       const updatedIngredients = [...ingredients, newIngredient];
       setIngredients(updatedIngredients);
       setAddIngredient("");
-    }
-  };
-
-  const handleSelectImage = async (event) => {
-    const selectedImage = event.target.files[0];
-    const formData = new FormData();
-    formData.append("image", selectedImage);
-
-    try {
-      const response = await api.patch(`/dishes/image/${params.id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      setImage(response.data.image);
-    } catch (error) {
-      alert("Error ao atualizar imagem:", error);
+      console.log(image);
     }
   };
 
@@ -75,11 +54,20 @@ export function CreatePlateADM() {
         category: selectedCategory,
         ingredients: ingredients.map((ingredient) => ingredient.tags),
       };
-      await api.put(`/dishes`, updateData);
-      console.log(updateData);
+
+      const formData = new FormData();
+      formData.append("image", image);
+      formData.append("data", JSON.stringify(updateData));
+
+      await api.post(`/dishes/with-image`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
       alert("Prato criado com sucesso!");
     } catch (error) {
-      alert(error);
+      alert("Erro ao criar o prato: " + error);
     }
   };
 
@@ -106,7 +94,7 @@ export function CreatePlateADM() {
                 id="imageUpload"
                 style={{ display: "none" }}
                 accept="image/*"
-                onChange={handleSelectImage}
+                onChange={(e) => setImage(e.target.files[0])}
               />
             </div>
           </div>

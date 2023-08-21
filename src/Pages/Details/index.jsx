@@ -10,6 +10,7 @@ import minus from "../../assets/minus.svg";
 import plus from "../../assets/plus.svg";
 import arrowLeft from "../../assets/arrowLeft.svg";
 import receipt from "../../assets/receipt.svg";
+import placeholderDishes from "../../assets/dishes.svg";
 
 import { Header } from "../../Components/Header";
 import { Footer } from "../../Components/Footer";
@@ -60,7 +61,10 @@ export function Details() {
       const response = await api.get(`/dishes/${params.id}`);
       setData(response.data);
       setPrice(response.data.price);
-      setDishesImage(`${api.defaults.baseURL}/files/${response.data.image}`);
+
+      if (response.data.image) {
+        setDishesImage(`${api.defaults.baseURL}/files/${response.data.image}`);
+      }
     }
     fetchDishes();
   }, []);
@@ -85,7 +89,7 @@ export function Details() {
           <div>
             <div>
               <div className="food-picture">
-                <DishesImg src={dishesImage} />
+                {dishesImage ? <DishesImg src={dishesImage} /> : <ReactSVG src={placeholderDishes} />}
               </div>
             </div>
             <div className="food-info">

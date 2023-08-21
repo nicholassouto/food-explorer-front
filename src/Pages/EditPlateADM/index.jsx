@@ -19,7 +19,6 @@ export function EditPlateADM() {
   const [addIngredient, setAddIngredient] = useState("");
   const [price, setPrice] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [image, setImage] = useState("");
 
   const params = useParams();
 
@@ -28,6 +27,12 @@ export function EditPlateADM() {
   function HandleBack() {
     navigate(-1);
   }
+
+  const handleDelete = async () => {
+    await api.delete(`/dishes/${params.id}`);
+    alert("Prato excluido com sucesso!");
+    navigate("/");
+  };
 
   const handleDeleteIngredient = (ingredientId) => {
     const updateIngredients = data.ingredients.filter((ingredient) => ingredient.id !== ingredientId);
@@ -51,13 +56,11 @@ export function EditPlateADM() {
     formData.append("image", selectedImage);
 
     try {
-      const response = await api.patch(`/dishes/image/${params.id}`, formData, {
+      await api.patch(`/dishes/image/${params.id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
-      setImage(response.data.image);
       alert("Imagem atualizada com sucesso!");
     } catch (error) {
       alert("Error ao atualizar imagem:", error);
@@ -199,7 +202,9 @@ export function EditPlateADM() {
         </div>
 
         <div className="save-delete">
-          <Button className="delete-dish">Excluir Prato</Button>
+          <Button onClick={handleDelete} className="delete-dish">
+            Excluir Prato
+          </Button>
           <Button onClick={handleSaveChanges} className="save-dish">
             Salvar Alterações
           </Button>

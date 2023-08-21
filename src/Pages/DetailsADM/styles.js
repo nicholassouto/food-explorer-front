@@ -20,6 +20,20 @@ export const Container = styled.div`
 
   .food-picture {
     margin-left: 5.2rem;
+
+    svg {
+      display: flex;
+      width: 26.4rem;
+      height: 26.4rem;
+      background-color: white;
+      border-radius: 50%;
+
+      @media (min-width: 1024px) {
+        width: 39.1rem;
+        height: 38.9rem;
+      }
+    }
+
     image {
       width: 26.4rem;
       height: 26.4rem;
@@ -90,21 +104,6 @@ export const Container = styled.div`
     }
   }
 
-  .pricing-include svg {
-    height: 2.7rem;
-    width: 2.7rem;
-    margin-top: 0.5rem;
-
-    @media (min-width: 1024px) {
-      height: 2.4rem;
-      width: 2.4rem;
-    }
-  }
-
-  .pricing-include svg:first-child {
-    margin-bottom: 0.5rem;
-  }
-
   .button {
     display: flex;
     flex-direction: row;
@@ -116,6 +115,10 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.tomato.tomato100};
     border-radius: 0.3rem;
     padding: 0.6rem 1.4rem;
+
+    @media (min-width: 1024px){
+      margin-left: 30rem;
+    }
 
     p {
       font-size: 0.9rem;
@@ -129,20 +132,11 @@ export const Container = styled.div`
         line-height: 2.4rem;
       }
     }
-
-    svg {
-      margin-top: 0.8rem;
-
-      @media (min-width: 1024px) {
-        display: none;
-      }
-    }
   }
 
   .food-info {
     @media (min-width: 1024px) {
       margin-top: 14rem;
-      margin-left: -5rem;
     }
 
     > h3 {
@@ -162,11 +156,10 @@ export const Container = styled.div`
     flex-direction: column;
 
     @media (min-width: 1024px) {
-        display: flex;
-        flex-direction: row;
-      }
+      display: flex;
+      flex-direction: row;
+    }
 
-    
     > div {
       display: flex;
       flex-direction: column;
@@ -193,11 +186,11 @@ export const Container = styled.div`
         margin-left: 3rem;
       }
 
-      svg:hover, p:hover{
+      svg:hover,
+      p:hover {
         cursor: pointer;
       }
     }
-
   }
 `;
 

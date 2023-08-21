@@ -34,8 +34,8 @@ export function HeaderADM({ setSearch }) {
     navigate("/SignUpADM");
   }
 
-  function handleBought() {
-    navigate("/Bought");
+  function handleBoughtADM() {
+    navigate("/BoughtADM");
   }
 
   function handleNewPlate() {
@@ -62,7 +62,7 @@ export function HeaderADM({ setSearch }) {
       </Search>
       <PedidosFavoritos>
         <p onClick={handleSignUpADM}>Cadastrar ADM</p>
-        <p onClick={handleBought}>Pedidos dos Clientes</p>
+        <p onClick={handleBoughtADM}>Pedidos dos Clientes</p>
       </PedidosFavoritos>
       <Button onClick={handleNewPlate} className="orders">
         <p>Novo Prato</p>
