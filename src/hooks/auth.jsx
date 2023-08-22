@@ -19,7 +19,7 @@ function AuthProvider({ children }) {
       setData({ user, token });
     } catch (error) {
       if (error.response) {
-        alert(error.response.date.message);
+        alert(error.response.data.message);
       } else {
         alert("Não foi possivel entrar");
       }

@@ -17,8 +17,8 @@ export function SignUpADM() {
   const navigate = useNavigate();
 
   function handleSignUp() {
-    if (!name || !email || !password) {
-      return alert("Preencha todos os campos");
+    if (!name || !email || password < 6) {
+      return alert("Preencha todos os campos, a senha deve ter 6 ou mais caracteres");
     }
 
     api

@@ -20,10 +20,12 @@ export const Container = styled.div`
     }
   }
 
-  > div:last-child {
+  .logout-button {
     display: none;
     @media (min-width: 1024px) {
       display: block;
+      background: none;
+      border: none;
 
       :hover{
         cursor: pointer;

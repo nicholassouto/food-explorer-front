@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { api } from "../../services/api";
 
-import { Header } from "../../Components/Header";
+import { HeaderADM } from "../../Components/HeaderADM";
 import { Footer } from "../../Components/Footer";
 import { BoughtDishesADM } from "../../Components/BoughtDishesADM";
 
@@ -24,7 +24,7 @@ export function BoughtADM() {
   }, [data]);
   return (
     <Container>
-      <Header />
+      <HeaderADM />
       <main>
         <h1>Histórico de Pedidos</h1>
         <Table>

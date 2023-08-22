@@ -68,6 +68,9 @@ export function EditPlateADM() {
   };
 
   const handleSaveChanges = async () => {
+    if (data.ingredients.lenght < 1 || price == 0 || !price || !description || !data.name) {
+      return alert("Preencha todos os campos");
+    }
     try {
       if (!data) {
         return alert("Não é possivel salvar");
@@ -84,6 +87,8 @@ export function EditPlateADM() {
       await api.put(`/dishes/${params.id}`, updateData);
 
       alert("Prato atualizado com sucesso!");
+
+      navigate("/")
     } catch (error) {
       alert(error);
     }

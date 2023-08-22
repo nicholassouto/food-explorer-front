@@ -45,7 +45,10 @@ export function CreatePlateADM() {
     }
   };
 
-  const handleSaveChanges = async () => {
+  const handleSaveDish = async () => {
+    if (!ingredients || !price || !description || !dishName) {
+      return alert("Preencha todos os campos");
+    }
     try {
       const updateData = {
         name: dishName,
@@ -66,6 +69,7 @@ export function CreatePlateADM() {
       });
 
       alert("Prato criado com sucesso!");
+      navigate("/")
     } catch (error) {
       alert("Erro ao criar o prato: " + error);
     }
@@ -180,7 +184,7 @@ export function CreatePlateADM() {
         </div>
 
         <div className="save">
-          <Button onClick={handleSaveChanges} className="save-dish">
+          <Button onClick={handleSaveDish} className="save-dish">
             Salvar Prato
           </Button>
         </div>

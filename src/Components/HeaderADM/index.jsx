@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import menu from "../../assets/menu.svg";
 import polygon from "../../assets/polygon.svg";
-import adm from "../../assets/admin.svg"
+import adm from "../../assets/admin.svg";
 import receipt from "../../assets/receipt.svg";
 import magnifier from "../../assets/magnifier.svg";
 import signOutIcon from "../../assets/signOut.svg";
@@ -67,9 +67,9 @@ export function HeaderADM({ setSearch }) {
       <Button onClick={handleNewPlate} className="orders">
         <p>Novo Prato</p>
       </Button>
-      <div>
-        <ReactSVG onClick={handleSignOut} src={signOutIcon} alt="icone de saida" />
-      </div>
+      <button onClick={handleSignOut} className="logout-button">
+        <ReactSVG src={signOutIcon} alt="icone de saida" />
+      </button>
     </Container>
   );
 }
