@@ -71,11 +71,11 @@ export const Table = styled.div`
     }
 
     > section:first-child {
-      padding-right: 4.5rem;
+      width: 30vw;
     }
 
     > section:nth-child(2) {
-      padding-right: 2.05rem;
+      width: 20vw;
     }
 
     > section:nth-child(3) {

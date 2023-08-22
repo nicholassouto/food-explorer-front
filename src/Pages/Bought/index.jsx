@@ -14,7 +14,7 @@ export function Bought() {
   useEffect(() => {
     async function fetchOrders() {
       try {
-        const response = await api.get("/bought"); // Endpoint da API
+        const response = await api.get("/bought");
         setData(response.data);
       } catch (error) {
         console.error("Erro ao buscar os pedidos:", error);

@@ -57,8 +57,16 @@ export const Data = styled.div`
   }
 
   .status {
+    select {
+      border-radius: 0.5rem;
+      background-color: ${({ theme }) => theme.cake.cake100};
+    }
+
+    svg {
+      margin-left: 0.8rem;
+    }
     @media (min-width: 1024px) {
-      width: 20vw;
+      width: 30vw;
       padding: 1.4rem 2.3rem;
     }
     svg {
@@ -66,15 +74,21 @@ export const Data = styled.div`
     }
   }
 
+  > div:nth-child(3) {
+    width: 20vw;
+  }
 
   > div:last-child {
     width: 20vw;
   }
 
-  .id {
+  .name {
     display: none;
     @media (min-width: 1024px) {
       display: flex;
+      flex-wrap: wrap;
+      overflow-wrap: break-word;
+      word-break: break-all;
     }
   }
 

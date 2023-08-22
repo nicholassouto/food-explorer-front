@@ -5,16 +5,15 @@ import { api } from "../../services/api";
 
 import { Header } from "../../Components/Header";
 import { Footer } from "../../Components/Footer";
-import { BoughtDishes } from "../../Components/BoughtDishes";
+import { BoughtDishesADM } from "../../Components/BoughtDishesADM";
 
 export function BoughtADM() {
   const [data, setData] = useState([]);
-  let orderIndicator = 1;
 
   useEffect(() => {
     async function fetchOrders() {
       try {
-        const response = await api.get("/bought"); // Endpoint da API
+        const response = await api.get("/boughtADM");
         setData(response.data);
       } catch (error) {
         console.error("Erro ao buscar os pedidos:", error);
@@ -22,7 +21,7 @@ export function BoughtADM() {
     }
 
     fetchOrders();
-  }, []);
+  }, [data]);
   return (
     <Container>
       <Header />
@@ -33,7 +32,7 @@ export function BoughtADM() {
             <p>Status</p>
           </section>
           <section>
-            <p>Código</p>
+            <p>Usuário</p>
           </section>
           <section>
             <p>Detalhamento</p>
@@ -43,7 +42,7 @@ export function BoughtADM() {
           </section>
         </Table>
         <section>
-          {data && data.map((order) => <BoughtDishes key={order.id} order={order} orderNumber={orderIndicator++} />)}
+          {data && data.map((order) => <BoughtDishesADM key={order.id} order={order}/>)}
         </section>
       </main>
       <Footer />

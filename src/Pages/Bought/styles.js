@@ -71,7 +71,7 @@ export const Table = styled.div`
     }
 
     > section:first-child {
-      padding-right: 4.5rem;
+      width: 20vw;
     }
 
     > section:nth-child(2) {
