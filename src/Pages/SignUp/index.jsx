@@ -16,7 +16,7 @@ export function SignUp() {
   const navigate = useNavigate();
 
   function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.{^\a@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]+$/i;
     return emailRegex.test(email);
   }
 
