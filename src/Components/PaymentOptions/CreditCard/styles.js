@@ -3,8 +3,8 @@ import { styled } from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  
-  >main{
+
+  > main {
     padding: 5.7rem 2.6rem;
   }
 
@@ -32,6 +32,7 @@ export const Container = styled.div`
       border: 1px solid ${({ theme }) => theme.light.light100};
       width: 100%;
       padding: 1.2rem 1.4rem;
+      color: ${({ theme }) => theme.light.light100};
     }
   }
 
