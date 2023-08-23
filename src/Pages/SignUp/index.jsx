@@ -15,9 +15,16 @@ export function SignUp() {
   const admin = false;
   const navigate = useNavigate();
 
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.{^\a@]+$/;
+    return emailRegex.test(email);
+  }
+
   function handleSignUp() {
-    if (!name || !email || password.length < 6) {
-      return alert("Preencha todos os campos, a senha deve ter 6 ou mais caracteres");
+    const trimmedPassword = password.trim();
+
+    if (!name.trim() || !isValidEmail(email) || trimmedPassword.length < 6) {
+      return alert("Preencha todos os campos corretamente, a senha deve ter 6 ou mais caracteres");
     }
 
     api

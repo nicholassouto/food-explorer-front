@@ -71,7 +71,7 @@ export const Table = styled.div`
     }
 
     > section:first-child {
-      width: 20vw;
+      width: 30vw;
     }
 
     > section:nth-child(2) {

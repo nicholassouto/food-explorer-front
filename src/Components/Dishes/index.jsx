@@ -44,6 +44,7 @@ export function Dishes({ data, ...rest }) {
         await api.post("/buy", { dishes_id: data.id });
       }
       updateBuyCount();
+      alert("Pedido adcionado a lista de compras");
     } catch (error) {
       alert(error.response.data.message);
     }

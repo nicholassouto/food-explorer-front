@@ -12,7 +12,11 @@ export const Container = styled.footer`
   > div {
     color: ${({ theme }) => theme.light.light200};
     p {
-      font-size: 1.2rem;
+      font-size: 1rem;
+
+      @media (min-width: 364px) {
+        font-size: 1.2rem;
+      }
     }
   }
 `;

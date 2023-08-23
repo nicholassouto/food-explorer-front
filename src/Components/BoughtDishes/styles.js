@@ -58,8 +58,8 @@ export const Data = styled.div`
 
   .status {
     @media (min-width: 1024px) {
-      width: 20vw;
-      padding: 1.4rem 2.3rem;
+      width: 30vw;
+      padding: 1.4rem 2.4rem;
     }
     svg {
       margin-right: 0.8rem;
