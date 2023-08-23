@@ -41,5 +41,5 @@ acesso adm
 conta adm@adm.com
 senha 123456
 
-link github do codigo
-https://github.com/nicholassouto/food-explorer-front
+repo do codigo
+https://food-explorer-nicholas.vercel.app
